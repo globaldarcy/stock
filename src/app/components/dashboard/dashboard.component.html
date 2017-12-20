@@ -1,3 +1,11 @@
 <p>
   dashboard works!
 </p>
+<input type="text" (keyup)="onKey($event)">
+<p>#myInput</p>
+<input #myInput type="text" (keyup)="onKey2(myInput.value)">
+<p>formControl</p>
+<input [formControl]="searchInput">
+<p>{{birthday | date:'yyyy-MM-dd HH:mm:ss' }}</p>
+<p>{{pi | number:'2.2-2'}}</p>
+<p>{{pi | multiple}}</p>
