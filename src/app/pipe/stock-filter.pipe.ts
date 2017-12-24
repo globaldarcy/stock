@@ -12,7 +12,7 @@ export class StockFilterPipe implements PipeTransform {
     return list.filter(item => {
       // console.log(item);
       // console.log(item.desc);
-      let itemFieldValue: string = item[field].toLowerCase();
+      const itemFieldValue: string = item[field].toLowerCase();
       return itemFieldValue.indexOf(keyword) >= 0;
     });
   }

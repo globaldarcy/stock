@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {Stock, StockService} from "../../service/stock.service";
-import {FormControl} from "@angular/forms";
+import { Router } from "@angular/router";
+import { Stock, StockService } from "../../service/stock.service";
+import { FormControl } from "@angular/forms";
 import "rxjs/add/operator/debounceTime";
 
 @Component({
@@ -17,19 +17,20 @@ export class StockManageComponent implements OnInit {
 
   private keyWork: string;
 
-  constructor(public router: Router, private stockService: StockService) { }
+  constructor(public router: Router, private stockService: StockService) {
+  }
 
   ngOnInit() {
     this.stocks = this.stockService.getStocks();
     this.nameFilter.valueChanges.debounceTime(500).subscribe(value => this.keyWork = value);
   }
 
-  create () {
+  create() {
     this.router.navigateByUrl('/stock/0');
     console.log(this.router.url);
   }
 
-  update (stock: Stock) {
+  update(stock: Stock) {
     this.router.navigateByUrl(`/stock/${stock.id}`);
   }
 }
